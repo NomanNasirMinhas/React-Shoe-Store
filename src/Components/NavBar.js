@@ -1,45 +1,56 @@
-// import React from 'react';
-// import { makeStyles } from '@material-ui/core/styles';
-// import AppBar from '@material-ui/core/AppBar';
-// import Toolbar from '@material-ui/core/Toolbar';
-// import Typography from '@material-ui/core/Typography';
-// import Button from '@material-ui/core/Button';
-// import IconButton from '@material-ui/core/IconButton';
-// import { Route, Switch, Link, NavLink, Redirect } from "react-router-dom";
-// import MenuIcon from '@material-ui/icons/Menu';
-// //import {Link} from 'react-router-dom'
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Fab from "@material-ui/core/Fab";
+import ListIcon from "@material-ui/icons/List";
+import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
+import QuestionAnswerIcon from "@material-ui/icons/QuestionAnswer";
+import Home from "@material-ui/icons/Home";
+import { AddShoppingCart } from "@material-ui/icons";
 
-// const useStyles = makeStyles((theme) => ({
-//   root: {
-//     flexGrow: 0,
-//   },
-//   menuButton: {
-//     marginRight: theme.spacing(2),
-//   },
-//   title: {
-//     flexGrow: 1,
-//   },
-// }));
+const useStyles = makeStyles((theme) => ({
+  root: {
+    "& > *": {
+      margin: theme.spacing(1),
+    },
+  },
+  extendedIcon: {
+    marginRight: theme.spacing(1),
+    color: "white",
+    fontFamily: "Righteous",
+  },
 
-// export default function NavBar() {
-//   const classes = useStyles();
+  anchor: {
+    color: "white",
+    fontFamily: "Righteous",
+  },
+}));
 
-//   return (
-//     <div className={classes.root}>
-//       <AppBar position="static">
-//         <Toolbar>
-//           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-//             <MenuIcon />
-//           </IconButton>
-//           <Typography variant="h6" className={classes.title}>
-//             Shoes Tracker App
-//           </Typography>
-//           {/* <Button onClick='/' to>Home</Button> */}
-//           <Button ><Link exact to="/products">Products</Link></Button>
-//           <Button ><Link exact to="/about">About Us</Link></Button>
+export default function FloatingActionButtons() {
+  const classes = useStyles();
 
-//         </Toolbar>
-//       </AppBar>
-//     </div>
-//   );
-// }
+  return (
+    <div className={classes.root}>
+      <Fab color="secondary" variant="extended">
+        <Home className={classes.extendedIcon} />
+        <a href="/" className={classes.anchor}>
+          Home
+        </a>
+      </Fab>
+
+      <Fab color="secondary" variant="extended">
+        <ListIcon className={classes.extendedIcon} />
+        <a href="/products" className={classes.anchor}>
+          All Products
+        </a>
+      </Fab>
+
+      <Fab color="secondary" variant="extended">
+        <AddShoppingCartIcon className={classes.extendedIcon} />
+        <a href="/checkout" className={classes.anchor}>
+          Cart
+        </a>
+      </Fab>
+
+    </div>
+  );
+}

@@ -6,7 +6,6 @@ import data from "./assets/data.json";
 import CardTemp from "./Card";
 import { Button } from "@material-ui/core";
 import "./css/home.css";
-import {TransactionContext, TransactionProvider} from './../cartContext';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,6 +25,13 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 60,
     fontWeight: "bold",
     fontFamily: "Righteous",
+  },
+
+  h2: {
+    color: "#F3F3F3",
+    fontSize: 28,
+    fontWeight: "bold",
+    fontFamily: "Times New Roman",
   },
 
   desc: {
@@ -61,27 +67,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function FullWidthGrid() {
+export default function NotFound() {
   const classes = useStyles();
   console.log(data["shoes1"]);
   return (
-
-      <div className={classes.root}>
+    <div className={classes.root}>
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
-            <h1 className={classes.title}>All Products</h1>
+            <h1 className={classes.title}>Page Not Found</h1>
           </Paper>
         </Grid>
-        {Object.keys(data).map((keyName) => {
-          return (
-            <Grid item xs={12} sm={3}>
-              <CardTemp shoe={keyName} />
-            </Grid>
-          );
-        })}
+
       </Grid>
     </div>
-
   );
 }
