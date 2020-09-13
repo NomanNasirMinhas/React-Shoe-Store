@@ -20,12 +20,11 @@ import {TransactionContext, TransactionProvider} from './cartContext';
 function RouteConfig() {
   return (
     <div>
-     
+
       <Router>
         <NavBar/>
         <Switch>
           <Route exact path="/" component={Home}></Route>
-          <Route exact path="/about" component={About}></Route>
           <Route exact path="/checkout" component={Cart}></Route>
           <Route exact path="/products" component={Products}></Route>
           <Route exact path="/product/:id" component={ProductItem}></Route>
